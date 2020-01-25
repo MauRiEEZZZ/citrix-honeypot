@@ -1,3 +1,7 @@
+```
+I updated the loglines as we need the date-time format with dashes. Big thanks to Robert of x1sec who provided this Honeypot!
+```
+
 # Citrix ADC (NetScaler) Honeypot
 - Detects and logs payloads for CVE-2019-19781 (Shitrix / Citrixmash)
 - Logs failed login attempts

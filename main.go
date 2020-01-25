@@ -125,7 +125,12 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 
 		loginAttemptLog.mu.Lock()
 		defer loginAttemptLog.mu.Unlock()
-		loginAttemptLog.logger.Printf("Failed login from %s user:%s pass:%s\n", r.RemoteAddr, u, p)
+		logLine := fmt.Sprintf("Failed login from %s user:%s pass:%s\n", r.RemoteAddr, u, p)
+		t := time.Now()
+		formattedLogLine := fmt.Sprintf("%d-%02d-%02dT%02d:%02d:%02d %s",
+				t.Year(), t.Month(), t.Day(),
+						t.Hour(), t.Minute(), t.Second(), logLine)
+		loginAttemptLog.logger.Printf(formattedLogLine)
 	}
 
 	http.ServeFile(w, r, "./static/do_login.html")
@@ -186,7 +191,11 @@ func logHandler(h http.Handler) http.Handler {
 
 		requestLine := fmt.Sprintf("%s %s %s", r.Method, r.RequestURI, r.Proto)
 		x := fmt.Sprintf("%s - - \"%s\"\n", clientIP, requestLine)
-		allRequestsLog.logger.Printf(x)
+		t := time.Now()
+		formattedLogLine := fmt.Sprintf("%d-%02d-%02dT%02d:%02d:%02d %s",
+				t.Year(), t.Month(), t.Day(),
+						t.Hour(), t.Minute(), t.Second(), x)
+		allRequestsLog.logger.Printf(formattedLogLine)
 
 		h.ServeHTTP(w, r)
 	})
@@ -247,7 +256,11 @@ func writeLogEntry(r *http.Request, message string) {
 		fmt.Println("error")
 	}
 
-	hitLog.logger.Println(logLine)
+	t := time.Now()
+	formattedLogLine := fmt.Sprintf("%d-%02d-%02dT%02d:%02d:%02d %s",
+			t.Year(), t.Month(), t.Day(),
+					t.Hour(), t.Minute(), t.Second(), logLine)
+	hitLog.logger.Println(formattedLogLine)
 
 }
 
@@ -278,5 +291,5 @@ func openLogger(e *eventLogger, path string) {
 	if err != nil {
 		panic(err)
 	}
-	e.logger = log.New(e.file, "", log.LstdFlags)
+	e.logger = log.New(e.file, "", 0)
 }
