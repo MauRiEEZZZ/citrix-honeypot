@@ -6,7 +6,7 @@ this Honeypot!
 # Citrix ADC (NetScaler) Honeypot
 - Detects and logs payloads for CVE-2019-19781 (Shitrix / Citrixmash)
 - Logs failed login attempts 
-- date time format in (ISO) international date notation since this works better for later ingestion at other systems, A very noc article about iso time notation can be found here: https://www.cl.cam.ac.uk/~mgk25/iso-time.html written by Markus Kuhn, thank you Markus!
+- Date time format in (ISO) international date notation since this works better for later ingestion at other systems, A very nice article about iso time notation can be found here: https://www.cl.cam.ac.uk/~mgk25/iso-time.html written by Markus Kuhn, thank you Markus!
 - Serves content and headers taken from real appliance in order to increase chance of indexing on search engines (e.g. google, shodan etc.)
 
 ![screenshot](https://github.com/x1sec/citrix-honeypot/blob/master/img/screenshot.png)
