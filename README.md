@@ -66,7 +66,7 @@ Results / data is written to the `./log` directory. They are:
 Running [the first public released exploit](https://github.com/projectzeroindia/CVE-2019-19781):
 ```
 $ cat logs/hits.log 
-2020/01/23 08:27:55 
+2020-01-23T08:27:55 
 -------------------
 Exploitation detected ...
 src: xxx.xxx.xxx.xxx
@@ -85,7 +85,7 @@ url=http://example.com\&title=[%25+template.new({'BLOCK'%3d'exec(\'id | tee /net
 Scanning attempt:
 ```
 $ cat logs/hits.log 
-2020/01/23 08:41:02 
+2020-01-23T08:41:02 
 -------------------
 Scanning detected ... 
 src: xxx.xxx.xxx.xxx
