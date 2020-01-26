@@ -1,14 +1,12 @@
 ```
-All credits go to Robert of x1sec.
-I forked his project and adjusted the log output to be 
-suitable for Log Analytics. 
 A big thank you goes to Robert of x1sec who provided 
 this Honeypot!
 ```
 
 # Citrix ADC (NetScaler) Honeypot
 - Detects and logs payloads for CVE-2019-19781 (Shitrix / Citrixmash)
-- Logs failed login attempts
+- Logs failed login attempts 
+- date time format in (ISO) international date notation since this works better for later ingestion at other systems, A very noc article about iso time notation can be found here: https://www.cl.cam.ac.uk/~mgk25/iso-time.html written by Markus Kuhn, thank you Markus!
 - Serves content and headers taken from real appliance in order to increase chance of indexing on search engines (e.g. google, shodan etc.)
 
 ![screenshot](https://github.com/x1sec/citrix-honeypot/blob/master/img/screenshot.png)
@@ -100,6 +98,6 @@ User-Agent: curl/7.67.0
 Login attempts:
 ```
 $ cat logs/logins.log
-2020/01/23 07:26:03 Failed login from xxx.xxx.xxx.xxx user:nsroot pass:nsroot
-2020/01/23 08:26:03 Failed login from xxx.xxx.xxx.xxx user:admin pass:admin
+2020-01-23T07:26:03 Failed login from xxx.xxx.xxx.xxx user:nsroot pass:nsroot
+2020-01-23T08:26:03 Failed login from xxx.xxx.xxx.xxx user:admin pass:admin
 ```
