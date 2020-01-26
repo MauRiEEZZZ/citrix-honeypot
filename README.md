@@ -1,5 +1,9 @@
 ```
-I updated the loglines as we need the date-time format with dashes. Big thanks to Robert of x1sec who provided this Honeypot!
+All credits go to Robert of x1sec.
+I forked his project and adjusted the log output to be 
+suitable for Log Analytics. 
+A big thank you goes to Robert of x1sec who provided 
+this Honeypot!
 ```
 
 # Citrix ADC (NetScaler) Honeypot
